@@ -12,7 +12,7 @@ Route::middleware(['auth'])->group(function(){
 
 	Route::middleware(['admin'])->group(function(){
 
-	//Clientes................................................................................
+	//Usuarios................................................................................
 
 	Route::get('/cliente/cadastro', 'ClienteController@telaCadastro')
 	->name('cliente_cadastro');
@@ -31,6 +31,51 @@ Route::middleware(['auth'])->group(function(){
 
 	Route::get('/cliente/listar', 'ClienteController@listar')
 	->name('cliente_listar');
+
+	//Maquinas................................................................................
+
+	Route::get('/maquina/cadastro', 'MaquinaController@telaCadastro')
+	->name('maquina_cadastro');
+
+	Route::get('/maquina/alterar/{id}', 'MaquinaController@telaAlteracao')
+	->name('maquina_update');
+
+	Route::post('/maquina/adicionar', 'MaquinaController@adicionar')
+	->name('maquina_add');
+
+	Route::post('/maquina/alterar/{id}', 'MaquinaController@alterar')
+	->name('maquina_alterar');
+
+	Route::get('/maquina/excluir/{id}', 'MaquinaController@excluir')
+	->name('maquina_delete');
+
+	Route::get('/maquina/listar', 'MaquinaController@listar')
+	->name('maquina_listar');
+
+	//Eventos................................................................................
+
+	Route::get('/evento/cadastro', 'EventoController@telaCadastro')
+	->name('evento_cadastro');
+
+	Route::get('/evento/alterar/{id}', 'EventoController@telaAlteracao')
+	->name('evento_update');
+
+	Route::post('/evento/adicionar', 'EventoController@adicionar')
+	->name('evento_add');
+
+	Route::post('/evento/alterar/{id}', 'EventoController@alterar')
+	->name('evento_alterar');
+
+	Route::get('/evento/excluir/{id}', 'EventoController@excluir')
+	->name('evento_delete');
+
+	Route::get('/evento/listar', 'EventoController@listar')
+	->name('evento_listar');
+
+	//Eventos.................................................................................
+
+	Route::get('eventos/total/', 'EventosController@todasVendas')
+	->name('eventos_total');
 
 	//Vendas.................................................................................
 

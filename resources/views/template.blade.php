@@ -61,24 +61,18 @@
 							<div class= "dropdown-menu" aria-labelledby="dropdownMenuButton">
 								<a class= "dropdown-item" href="{{route('cliente_cadastro')}}"> 
 								<i class="icon-user-circle-o"></i>	
-								Clientes														
+								Usuarios														
 								</a>
 								<div class= "dropdown-divider"></div>
-								<a class= "dropdown-item" href="{{route('produto_cadastro')}}"> 
+								<a class= "dropdown-item" href="{{route('maquina_cadastro')}}"> 
 								<i class="icon-tags"></i>
-								Produtos								
+								Maquinas								
 								</a>
 								<div class= "dropdown-divider"></div>
-								<a class= "dropdown-item" href="{{route('categoria_cadastro')}}"> 
+								<a class= "dropdown-item" href="{{route('evento_cadastro')}}"> 
 								<i class="icon-sitemap"></i>
-								Categorias							
-								</a>
-								<div class= "dropdown-divider"></div>
-								<a class= "dropdown-item" href="{{route('unidade_cadastro')}}"> 
-								<i class="icon-balance-scale"></i>
-								Unidades							
-								</a>
-								
+								Eventos							
+								</a>								
 							</div>
 
 					 </div>
@@ -95,22 +89,17 @@
 							<div class= "dropdown-menu" aria-labelledby="dropdownMenuButton">
 								<a class= "dropdown-item" href="{{route('cliente_listar')}}"> 
 								<i class="icon-user-circle-o"></i>	
-								Clientes														
+								Usuarios														
 								</a>
 								<div class= "dropdown-divider"></div>
-								<a class= "dropdown-item" href="{{route('produto_listar')}}"> 
+								<a class= "dropdown-item" href="{{route('maquina_listar')}}"> 
 								<i class="icon-tags"></i>
-								Produtos								
+								Máquinas								
 								</a>
 								<div class= "dropdown-divider"></div>
-								<a class= "dropdown-item" href="{{route('categoria_listar')}}"> 
+								<a class= "dropdown-item" href="{{route('evento_listar')}}"> 
 								<i class="icon-sitemap"></i>
-								Categorias							
-								</a>
-								<div class= "dropdown-divider"></div>
-								<a class= "dropdown-item" href="{{route('unidade_listar')}}"> 
-								<i class="icon-balance-scale"></i>
-								Unidades							
+								Eventos							
 								</a>
 								
 							</div>
@@ -122,19 +111,14 @@
 					 <div class="dropdown">
 
 							<button class="btn btn-secondary" type="button" data-toggle="dropdown">
-								Vendas
+								Eventos
 								<i class="icon-basket"></i>
 							</button>
 
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<a class= "dropdown-item" href="{{route('vendas_total')}}">
+								<a class= "dropdown-item" href="{{route('eventos_total')}}">
 								<i class="icon-th-list"></i>
 								Listar Todas
-								</a>
-							<div class= "dropdown-divider"></div>	
-								<a class="dropdown-item" href="{{route('venda_cadastro')}}">
-								<i class="icon-cart-plus"></i>
-								Vender
 								</a>
 														
 					 </div>
