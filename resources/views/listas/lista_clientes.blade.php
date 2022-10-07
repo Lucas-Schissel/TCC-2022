@@ -5,7 +5,7 @@
 
 <div class= "row">
 	<span class="d-block p-2 bg-dark text-center text-white w-100">
-		<h1>Lista de Clientes</h1>
+		<h1>Lista de Usuarios</h1>
 	</span>
 </div>
 
@@ -38,11 +38,6 @@
 			 <a class="delete btn btn-danger m-1" data-nome="{{ $c->nome}}" data-id="{{ $c->id}}">
 			 Excluir
 			 <i class="icon-trash-empty"></i>
-			 </a>
-
-			 <a class="btn btn-success mt-1" href="{{ route('vendas_cliente', [ 'id' => $c->id ])}}">
-			 Vendas
-			 <i class="icon-dollar"></i>
 			 </a>
 
 			</td>

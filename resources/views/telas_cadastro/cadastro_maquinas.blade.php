@@ -4,7 +4,7 @@
 <div class= "row">
 	<span class="d-block p-2 bg-dark text-center text-white w-100">
 		<h2>
-			Cadastro de Categorias
+			Cadastro de Maquinas
 			<i class="icon-download"></i>
 		</h2>
 	</span>
@@ -19,7 +19,7 @@
 
         <div  class="col-lg-8 col-md-12 col-sm-12 col-12 mt-4 p-5 border border-success rounded">
 
-			<form method="post" action="{{ route('categoria_add') }}">
+			<form method="post" action="{{ route('maquina_add') }}">
 			@csrf
 				
 				<input type="text" class="form-control border border-success rounded" name="nome" placeholder="Nome">

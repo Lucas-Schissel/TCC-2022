@@ -4,7 +4,7 @@
 <div class= "row">
 	<span class="d-block p-2 bg-dark text-center text-white w-100">
 		<h2>
-			Cadastro de Clientes
+			Cadastro de Usuarios
 			<i class="icon-download"></i>
 		</h2>
 	</span>
