@@ -87,7 +87,7 @@ class MaquinaController extends Controller
 
     function listar(){
         if (Auth::check()){
-            $ctg = Maquina::all();
+            $maq = Maquina::all();
             return view("listas.lista_maquinas", [ "maq" => $maq ]);
             
 		}else{
