@@ -17,13 +17,13 @@
  <div class= "container-fluid">
      <div class= "row">
 
-			<nav class= "navbar-expand-lg navbar navbar-dark bg-dark w-100">
+			<nav   class= "navbar-expand-lg navbar navbar-dark bg-dark w-100">
 
 			  <button class= "navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" arina-label="Toggle navigation">
 			  <i class="icon-down-open"></i>
 			  </button>
 
-				<div class= "collapse navbar-collapse" id="navbarNav">
+				<div class="mx-auto" class= "collapse navbar-collapse" id="navbarNav">
 
 					<ul class= "navbar-nav">
 					

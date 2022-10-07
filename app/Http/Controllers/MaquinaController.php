@@ -4,22 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use App\Categoria;
+use App\Maquina;
 use Auth;
 
-class CategoriaController extends Controller
+class MaquinaController extends Controller
 {
     function telaCadastro(){
         if (Auth::check()){
-            return view('telas_cadastro.cadastro_categorias');
+            return view('telas_cadastro.cadastro_maquinas');
         }
         return view('auth.login');
     }
 
     function telaAlteracao($id){
         if (Auth::check()){
-            $ctg = Categoria::find($id);
-            return view("telas_updates.alterar_categoria", [ "ctg" => $ctg ]);
+            $maq = Maquina::find($id);
+            return view("telas_updates.alterar_maquina", [ "maq" => $maq ]);
         }
         return view('auth.login');
     }
@@ -35,20 +35,20 @@ class CategoriaController extends Controller
             $nome = $req->input('nome');
             $descricao = $req->input('descricao');
                     
-            $ctg = new Categoria();
-            $ctg->nome = $nome;
-            $ctg->descricao = $descricao;       
+            $maq = new Maquina();
+            $maq->nome = $nome;
+            $maq->descricao = $descricao;       
 
-            if ($ctg->save()){
+            if ($maq->save()){
                 session([
-                    'mensagem' =>"Categoria: $nome, foi adicionada com sucesso!"
+                    'mensagem' =>"Maquina: $nome, foi adicionada com sucesso!"
                 ]);
             } else {
                 session([
-                    'mensagem' =>"Categoria: $nome, nao adicionada !!!"
+                    'mensagem' =>"Maquina: $nome, nao adicionada !!!"
                 ]);
             }
-            return CategoriaController::telaCadastro();
+            return MaquinaController::telaCadastro();
         }
         return view('auth.login');
     }
@@ -61,25 +61,25 @@ class CategoriaController extends Controller
                 'descricao' => 'required|min:5',
             ]);
 
-            $ctg = Categoria::find($id);
+            $maq = Maquina::find($id);
             $nome = $req->input('nome');
             $descricao = $req->input('descricao');
 
-            $ctg->nome = $nome;
-            $ctg->descricao = $descricao;
+            $maq->nome = $nome;
+            $maq->descricao = $descricao;
             
         
-            if ($ctg->save()){
+            if ($maq->save()){
                 session([
-                    'mensagem' =>"Categoria: $nome, foi alterada com sucesso!"
+                    'mensagem' =>"Maquina: $nome, foi alterada com sucesso!"
                 ]);
             } else {
                 session([
-                    'mensagem' =>"Categoria: $nome, nao alterada !!!"
+                    'mensagem' =>"Maquina: $nome, nao alterada !!!"
                 ]);
             }
 
-            return CategoriaController::listar();
+            return MaquinaController::listar();
         }
         return view('auth.login'); 
         
@@ -87,8 +87,8 @@ class CategoriaController extends Controller
 
     function listar(){
         if (Auth::check()){
-            $ctg = Categoria::all();
-            return view("listas.lista_categorias", [ "ctg" => $ctg ]);
+            $ctg = Maquina::all();
+            return view("listas.lista_maquinas", [ "maq" => $maq ]);
             
 		}else{
             return view('auth.login');
@@ -98,23 +98,22 @@ class CategoriaController extends Controller
     function excluir($id){
         if (Auth::check()){
 
-            $ctg = Categoria::find($id);
+            $maq =  Maquina::find($id);
 
-                if ($ctg->delete()){
+                if ($maq->delete()){
                     session([
-                        'mensagem' =>"Categoria: $ctg->nome , foi excluída com sucesso!"
+                        'mensagem' =>"Maquina: $maq->nome , foi excluída com sucesso!"
                     ]);
-                    return CategoriaController::listar();
+                    return MaquinaController::listar();
                 } else {
                     session([
-                        'mensagem' =>"Categoria: $ctg->nome , nao foi excluída!"
+                        'mensagem' =>"Maquina: $maq->nome , nao foi excluída!"
                     ]);
-                    return CategoriaController::listar();
+                    return MaquinaController::listar();
                 }
             
         }else{
             return view('auth.login');
         }
     }
-
 }
