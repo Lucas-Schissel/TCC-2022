@@ -98,7 +98,7 @@
 								</a>
 								<div class= "dropdown-divider"></div>
 								<a class= "dropdown-item" href="{{route('evento_listar')}}"> 
-								<i class="icon-sitemap"></i>
+								<i class="icon-attention"></i>
 								Eventos							
 								</a>
 								
@@ -112,7 +112,7 @@
 
 							<button class="btn btn-secondary" type="button" data-toggle="dropdown">
 								Eventos
-								<i class="icon-basket"></i>
+								<i class="icon-attention"></i>
 							</button>
 
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">

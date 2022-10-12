@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use App\User;
 use App\Cliente;
 use App\Venda;
 use Auth;
@@ -13,7 +16,7 @@ class ClienteController extends Controller
 
     function telaCadastro(){
         if (Auth::check()){
-            return view("telas_cadastro.cadastro_clientes");
+            return view("telas_cadastro.cadastro_usuarios");
         }
         return view('auth.login');
     }
@@ -29,27 +32,30 @@ class ClienteController extends Controller
     function adicionar(Request $req){
 
         $req->validate([
-            'nome' => 'required|min:5',
-            'login' => 'required|min:5',
-            'senha' => 'required|min:4',
+            'nome' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'senha' => ['required', 'string', 'min:8'],
         ]);
 
     	$nome = $req->input('nome');
-    	$login = $req->input('login');
+    	$email = $req->input('email');
         $senha = $req->input('senha');
+        $nivel = $req->input('id_usuario');
+
     
-        $compara_login = DB::table('clientes')->where('login',$login)->value('login');
+        $compara_email = DB::table('users')->where('email',$email)->value('email');
 
-        if($compara_login){
-            echo  "<script>alert('O login: $login ja esta em uso!');</script>";
-            return view("telas_cadastro.cadastro_clientes");
+        if($compara_email){
+            echo  "<script>alert('O email: $email ja esta em uso!');</script>";
+            return view("telas_cadastro.cadastro_usuarios");
         }else{
-
-            $cli = new Cliente();
-            $cli->nome = $nome;
-            $cli->login = $login;
-            $cli->senha = $senha;
-
+            
+            $cli = new User();
+            $cli->name = $nome;
+            $cli->email = $email;
+            $cli->password = Hash::make($senha);
+            $cli->nivel = $nivel;
+            
             if ($cli->save()){
                 session([
                     'mensagem' =>"Cliente: $nome, foi adicionado com sucesso!"
@@ -59,7 +65,8 @@ class ClienteController extends Controller
                     'mensagem' =>"Cliente: $nome, nao foi adicionado !!!"
                 ]);
             }
-            return view("telas_cadastro.cadastro_clientes");
+            return view("telas_cadastro.cadastro_usuarios");
+            
         }
     }
 
