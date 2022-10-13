@@ -116,7 +116,7 @@
 							</button>
 
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<a class= "dropdown-item" href="{{route('eventos_total')}}">
+								<a class= "dropdown-item" href="{{route('alarmes_listar')}}">
 								<i class="icon-th-list"></i>
 								Listar Todas
 								</a>

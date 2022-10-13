@@ -94,16 +94,16 @@ class ClienteController extends Controller
     function excluir($id){
         if (Auth::check()){     
                 
-                    $cli = Cliente::find($id);
+                    $user = User::find($id);
                     
-                    if ($cli->delete()){
+                    if ($user->delete()){
                         session([
-                            'mensagem' =>"Cliente: $cli->nome ,foi excluído com sucesso!"
+                            'mensagem' =>"Usuario: $user->name ,foi excluído com sucesso!"
                         ]);
                         return ClienteController::listar();
                     } else {
                         session([
-                            'mensagem' =>"Cliente: $cli->nome , nao foi excluído!"
+                            'mensagem' =>"Usuario: $user->name , nao foi excluído!"
                         ]);
                         return ClienteController::listar();
                         }

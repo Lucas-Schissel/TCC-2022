@@ -72,11 +72,8 @@ Route::middleware(['auth'])->group(function(){
 	Route::get('/evento/listar', 'EventoController@listar')
 	->name('evento_listar');
 
-	//Eventos.................................................................................
-
-	Route::get('eventos/total/', 'EventosController@todasVendas')
+	Route::get('/eventos/listar', 'EventoController@listar')
 	->name('eventos_total');
-
 
 	});
 
@@ -93,22 +90,11 @@ Route::middleware(['auth'])->group(function(){
 	//Usuarios..................................................................................
 	Route::get('/usuario/listar', 'ClienteController@listar')
 	->name('usuario_listar');
+	
+	//Alarmes................................................................................
 
-	//Vendas....................................................................................
-	Route::get('/venda/listar', 'VendaController@listar')
-	->name('venda_listar');
-
-	//Produtos................................................................................
-	Route::get('/produto/listar', 'ProdutoController@listar')
-	->name('produto_listar');
-
-	//Categorias...............................................................................
-	Route::get('/categoria/listar', 'categoriaController@listar')
-	->name('categoria_listar');
-
-	//Unidades..................................................................................
-	Route::get('/unidade/listar', 'unidadeController@listar')
-	->name('unidade_listar');
+	Route::get('/alarmes/listar', 'AlarmesController@listar')
+	->name('alarmes_listar');
 
 	
 });
