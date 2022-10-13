@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\User;
 use App\Cliente;
-use App\Venda;
 use Auth;
 
 class ClienteController extends Controller

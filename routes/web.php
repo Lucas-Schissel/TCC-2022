@@ -96,6 +96,9 @@ Route::middleware(['auth'])->group(function(){
 	Route::get('/alarmes/listar', 'AlarmesController@listar')
 	->name('alarmes_listar');
 
+	Route::get('/alarmes/adicionar', 'AlarmesController@adicionar')
+	->name('alarmes_adicionar');
+
 	
 });
 
