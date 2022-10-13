@@ -10,27 +10,27 @@
 
 <div class="row bg-dark text-white border border-white rounded ">
 			<div class = "col-md-6 col-sm-6 col-6 p-1">
-				Nº Clientes:
+				Nº Usuarios:
 				<span id="estrela" class="badge badge-primary badge-pill">
-        {{$clientes}}
+        {{$usuarios}}
         </span>		
 			</div>
 			<div class = "col-md-6 col-sm-6 col-6 p-1">
-				Nº Vendas:
+				Nº Eventos:
 				<span id="estrela" class="badge badge-primary badge-pill">
-        {{$vendas}}
+        {{$eventos}}
         </span>		
 			</div>
 			<div class = "col-md-6 col-sm-6 col-6 p-1">
-				Nº Produtos:
+				Nº Maquinas:
 				<span id="estrela" class="badge badge-primary badge-pill">
-        {{$produtos}}
+        {{$maquinas}}
         </span>	
 			</div>
 			<div class = "col-md-6 col-sm-6 col-6 p-1">
-        Total em Vendas: 
+        Alarmes ativos: 
 				<span id="estrela" class="badge badge-primary badge-pill">
-          R$: {{$dinheiros}}
+        {{$alarmes}}
         </span>	
 			</div>				
 </div>
