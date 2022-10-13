@@ -65,7 +65,7 @@
 								</a>
 								<div class= "dropdown-divider"></div>
 								<a class= "dropdown-item" href="{{route('maquina_cadastro')}}"> 
-								<i class="icon-tags"></i>
+								<i class="icon-cog-alt"></i>
 								Maquinas								
 								</a>
 								<div class= "dropdown-divider"></div>
@@ -93,12 +93,12 @@
 								</a>
 								<div class= "dropdown-divider"></div>
 								<a class= "dropdown-item" href="{{route('maquina_listar')}}"> 
-								<i class="icon-tags"></i>
+								<i class="icon-cog-alt"></i>
 								Máquinas								
 								</a>
 								<div class= "dropdown-divider"></div>
 								<a class= "dropdown-item" href="{{route('evento_listar')}}"> 
-								<i class="icon-attention"></i>
+								<i class="icon-sitemap"></i>
 								Eventos							
 								</a>
 								
@@ -111,7 +111,7 @@
 					 <div class="dropdown">
 
 							<button class="btn btn-secondary" type="button" data-toggle="dropdown">
-								Eventos
+								Alarmes
 								<i class="icon-attention"></i>
 							</button>
 

@@ -25,8 +25,8 @@
 		@foreach ($cli as $c)
 		  <tr class="table-light">
 			<td id="celula1">{{ $c->id }}</td>
-			<td id="celula2">{{ $c->nome }}</td>
-			<td id="celula3">{{ $c->login }}</td>
+			<td id="celula2">{{ $c->name }}</td>
+			<td id="celula3">{{ $c->email }}</td>
 
 			<td>
 

@@ -23,9 +23,15 @@
 			@csrf					
 					<input class="form-control mt-3 p-4 border border-success rounded" type="text"  name="nome" placeholder="Digite um nome . . ." required>
 					
-					<input class="form-control mt-3 p-4 border border-success rounded" type="text"  name="login" placeholder="Digite um login . . ." required>
+					<input class="form-control mt-3 p-4 border border-success rounded" type="email"  name="email" placeholder="Digite um e-mail . . ." required>
 					
 					<input class="form-control mt-3 p-4 border border-success rounded" type="password"  name="senha" placeholder="Digite uma senha . . ." required>
+
+					<select name="id_usuario" class="form-control mt-3 border border-success rounded" >
+  						<option disabled selected>Nivel de usuário</option>
+  						<option value="1">Administrador</option>
+  						<option value="0">Comun</option>
+					</select>
 					
 					<button class="btn btn-success btn-block mt-3 p-3 "  type="submit">
 					 Cadastrar

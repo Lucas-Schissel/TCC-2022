@@ -90,9 +90,9 @@ Route::middleware(['auth'])->group(function(){
 	Route::get('/logout', 'AppController@logout')
 	->name('logout');
 
-	//Clientes..................................................................................
-	Route::get('/cliente/listar', 'ClienteController@listar')
-	->name('cliente_listar');
+	//Usuarios..................................................................................
+	Route::get('/usuario/listar', 'ClienteController@listar')
+	->name('usuario_listar');
 
 	//Vendas....................................................................................
 	Route::get('/venda/listar', 'VendaController@listar')
