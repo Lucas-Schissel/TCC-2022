@@ -4,7 +4,7 @@
 
 <div class= "row">
 		<span class="d-block bg-dark text-center text-white w-100">
-      <h2>Todas os Alarmes:</h2>
+      <h2>Todos os Alarmes:</h2>
 		</span>
 </div>
  
