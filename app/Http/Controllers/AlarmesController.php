@@ -22,7 +22,7 @@ class AlarmesController extends Controller
 						
 			$alm = new Alarmes();
 			$alm->id_maquina = 1;
-			$alm->id_evento = 1;
+			$alm->id_evento = 3;
 			
 
 			if ($alm->save()){

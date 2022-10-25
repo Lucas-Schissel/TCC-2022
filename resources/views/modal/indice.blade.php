@@ -10,32 +10,23 @@
 
 <div class="row bg-dark text-white border border-white rounded ">
 			<div class = "col-md-6 col-sm-6 col-6 p-1">
-				Nº Usuarios:
+				Nome:
 				<span id="estrela" class="badge badge-primary badge-pill">
-        {{$usuarios}}
+        {{$maq_nome}}
         </span>		
 			</div>
-			<div class = "col-md-6 col-sm-6 col-6 p-1">
-				Nº Eventos:
+      <div class = "col-md-6 col-sm-6 col-6 p-1">
+				Total Eventos:
 				<span id="estrela" class="badge badge-primary badge-pill">
-        {{$eventos}}
+        {{$alm_total}}
         </span>		
 			</div>
-			<div class = "col-md-6 col-sm-6 col-6 p-1">
-				Nº Maquinas:
-				<span id="estrela" class="badge badge-primary badge-pill">
-        {{$maquinas}}
-        </span>	
-			</div>
-			<div class = "col-md-6 col-sm-6 col-6 p-1">
-        Alarmes ativos: 
-				<span id="estrela" class="badge badge-primary badge-pill">
-        {{$alarmes}}
-        </span>	
-			</div>				
-</div class = "col-md-6 col-sm-6 col-6 p-1">
-<canvas id="myChart"></canvas>
-<div>
+      </div class = "col-md-6 col-sm-6 col-6 p-1">
+        <canvas id="myChart"></canvas>
+      <div>
+			
+</div>				
+
  
 </div>
 
@@ -47,19 +38,16 @@
 </div>
 
 <script>
-  const data = {
-  labels: [
-    'Usuarios',
-    'Máquinas',
-    'Eventos'
-  ],
+const data = {
+  labels: [{!!$listanomes!!}],
   datasets: [{
-    label: 'Indicadores',
-    data: [{{$usuarios}},{{$maquinas}},{{$eventos}}],
+    label: 'My First Dataset',
+    data: [{{$listaqtd}}],
     backgroundColor: [
       'rgb(255, 99, 132)',
       'rgb(54, 162, 235)',
-      'rgb(255, 205, 86)'
+      'rgb(255, 205, 86)',
+      'rgb(245, 236, 66)'
     ],
     hoverOffset: 4
   }]
@@ -69,6 +57,7 @@ const config = {
   type: 'doughnut',
   data: data,
 };
+
 </script>
 
 <script>

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Maquina;
+use App\Alarmes;
+use App\Evento;
 use Auth;
 
 class MaquinaController extends Controller
@@ -23,6 +25,37 @@ class MaquinaController extends Controller
         }
         return view('auth.login');
     }
+
+    function indice(Request $req, $id){
+		if (Auth::check()){			
+			$maq = Maquina::find($id);
+            $eve = Evento::All(); 
+            $alm_total = Alarmes::where('id_maquina',$id)->get()->count();
+            $alm = Alarmes::All();
+
+            foreach($eve as $eve_nome){
+                $array_nomes_eventos[] =  "'".$eve_nome->nome."'";
+            }
+
+            foreach($eve as $e){
+                foreach($alm as $a){
+                $qtd = DB::table('alarmes')
+                        ->where('id_maquina',$id)
+                        ->where('id_evento',$e->id)
+                        ->get()->count();                   
+                }   
+                $array_qtd_eventos[] =  $qtd;       
+            }          
+               
+
+            $maq_nome = $maq->nome;
+            $listanomes = implode(',',$array_nomes_eventos);
+            $listaqtd = implode(',', $array_qtd_eventos);
+			
+			return view("modal.indice")->with(compact('maq_nome','alm_total','listaqtd','listanomes'));
+		}
+		return view('login');
+	}
 
     function adicionar(Request $req){
         if (Auth::check()){

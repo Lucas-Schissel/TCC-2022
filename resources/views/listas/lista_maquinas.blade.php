@@ -30,6 +30,11 @@
 			 <i class="icon-arrows-cw"></i>
 			 </a>
 
+			 <a class="btn btn btn-success m-1" href="{{ route('maquina_indices', [ 'id' => $u->id ])}}">
+			 Indices
+			 <i class="icon-chart-line"></i>
+			 </a>
+
 			 <a class="delete btn btn-danger m-1" data-nome="{{ $u->nome}}" data-id="{{ $u->id}}">
 			 Excluir
 			 <i class="icon-trash-empty"></i>

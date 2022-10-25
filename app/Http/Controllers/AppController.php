@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\User;
+use App\Maquina;
+use App\Evento;
 use App\Cliente;
+use App\Alarmes;
 use Auth;
 
 
@@ -13,14 +17,16 @@ class AppController extends Controller
 {
 	function dashboard(){
 		if (Auth::check()){			
-			$cli = Cliente::All();
-			$clientes = count($cli);
-			$pdr = Produto::All();
-			$produtos = count($pdr);
-			$vnd = Venda::All();
-			$vendas = count($vnd);
-			$dinheiros = collect($vnd)->sum('valor');
-			return view("modal.dashboard")->with(compact('clientes','produtos','vendas','dinheiros'));
+			$user = User::All();
+			$usuarios = count($user);
+			$maq = Maquina::All();
+			$maquinas = count($maq);
+			$eve = Evento::All();
+			$eventos = count($eve);
+			$alm = Alarmes::All();
+			$alarmes = count($alm);
+			
+			return view("modal.dashboard")->with(compact('usuarios','maquinas','eventos','alarmes'));
 		}
 		return view('login');
 	}

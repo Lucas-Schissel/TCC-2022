@@ -52,6 +52,9 @@ Route::middleware(['auth'])->group(function(){
 	Route::get('/maquina/listar', 'MaquinaController@listar')
 	->name('maquina_listar');
 
+	Route::get('/maquina/indices/{id}', 'MaquinaController@indice')
+	->name('maquina_indices');
+
 	//Eventos................................................................................
 
 	Route::get('/evento/cadastro', 'EventoController@telaCadastro')
