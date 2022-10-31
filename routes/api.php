@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\ApiEventoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +22,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::middleware('auth:api')->post('/user', function (Request $request) {
     return $request->user();
 });
+/*
+
+Route::apiResource('eventos', ApiEventoController::entradas);
+
+/*
+Route::get('eventos', 'api\ApiEventoController@entradas');
+Route::post('dados', 'api\ApiEventoController@eventos');
+*/

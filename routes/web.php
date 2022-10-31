@@ -105,6 +105,11 @@ Route::middleware(['auth'])->group(function(){
 	
 });
 
+Route::get('/api/inputs/{id}', 'api\ApiEventoController@inputs');
+Route::get('/api/entradas', 'api\ApiEventoController@entradas');
+Route::post('/api/dados', 'api\ApiEventoController@dados');
+
+
 
 
 
