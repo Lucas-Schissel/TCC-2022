@@ -3,7 +3,7 @@
 
 <div class= "row">
 	<span class="d-block p-2 bg-dark text-center text-white w-100">
-		<h1>Lista de CLPs</h1>
+		<h1>Lista de Entradas</h1>
 	</span>
 </div>
 
@@ -13,31 +13,31 @@
 		<thead class="thead-dark">
 			<tr>
 				<th id="celula1">ID</th>
-				<th >Ip</th>
-				<th >Nome</th>
+				<th >Maquina</th>
+				<th >Evento</th>
+				<th >CLP</th>
+				<th >IN</th>
+				<th >Padrão</th>
 				<th >Funções</th>
 			</tr>
 		</thead>
 					
 		<tbody>
-		@foreach ($clp as $c)
+		@foreach ($entradas as $e)
 		  <tr class="table-light" >
-			<td id="celula1">{{  $c->id }}</td>
-			<td>{{  $c->ip }}</td>
-			<td>{{ 	$c->nome }}</td>
+			<td id="celula1">{{  $e->id }}</td>
+			<td>{{  $e->maquina->nome}}</td>
+			<td>{{ 	$e->evento->nome}}</td>
+			<td>{{ 	$e->clp->nome}}</td>
+			<td>{{ 	$e->indice}}</td>
+			<td>{{ 	$e->padrao}}</td>
 			<td>
 
-			 <a class="btn btn-warning mt-1" href="{{ route('clp_update', [ 'id' => $c->id ])}}"> 
+			 <a class="btn btn-warning mt-1" href="{{ route('entradas_update', [ 'id' => $e->id ])}}"> 
 			 Alterar
 			 <i class="icon-arrows-cw"></i>
 			 </a>
-
-			 <a class="btn btn btn-success m-1" href="{{ route('clp_indices', [ 'id' => $c->id ])}}">
-			 Indices
-			 <i class="icon-chart-line"></i>
-			 </a>
-
-			 <a class="delete btn btn-danger m-1" data-nome="{{ $c->nome}}" data-id="{{ $c->id}}">
+			 <a class="delete btn btn-danger m-1" data-nome="{{ $e->indice}}" data-id="{{ $e->id}}">
 			 Excluir
 			 <i class="icon-trash-empty"></i>
 			 </a>
@@ -57,7 +57,7 @@
 			<i class="icon-left-circled"></i>
 			Voltar		
 		</a>
-		<a class="btn btn-secondary m-1 p-1" type="button2" href="{{ route('clp_cadastro') }}">
+		<a class="btn btn-secondary m-1 p-1" type="button2" href="{{ route('entradas_cadastro') }}">
 			<i class="icon-plus-circled"></i>
 			Novo			
 		</a>
@@ -88,7 +88,7 @@
 		var nome = $(this).data('nome');
 		var id = $(this).data('id'); 
 		$('span.nome').text(nome); 
-		$('a.delete-yes').attr('href', '/clp/excluir/' +id); 
+		$('a.delete-yes').attr('href', '/entrada/excluir/' +id); 
 		$('#excluir').modal('show');
 	});
 </script>

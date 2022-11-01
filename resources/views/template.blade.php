@@ -75,6 +75,11 @@
 								CLP								
 								</a>
 								<div class= "dropdown-divider"></div>
+								<a class= "dropdown-item" href="{{route('entradas_cadastro')}}"> 
+								<i class="icon-cog-alt"></i>
+								Entradas								
+								</a>
+								<div class= "dropdown-divider"></div>
 								<a class= "dropdown-item" href="{{route('evento_cadastro')}}"> 
 								<i class="icon-sitemap"></i>
 								Eventos							
@@ -106,6 +111,11 @@
 								<a class= "dropdown-item" href="{{route('maquina_listar')}}"> 
 								<i class="icon-cog-alt"></i>
 								Máquinas								
+								</a>
+								<div class= "dropdown-divider"></div>
+								<a class= "dropdown-item" href="{{route('entradas_listar')}}"> 
+								<i class="icon-cog-alt"></i>
+								Entradas								
 								</a>
 								<div class= "dropdown-divider"></div>
 								<a class= "dropdown-item" href="{{route('evento_listar')}}"> 

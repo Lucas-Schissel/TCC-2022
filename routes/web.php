@@ -55,15 +55,15 @@ Route::middleware(['auth'])->group(function(){
 	Route::get('/maquina/indices/{id}', 'MaquinaController@indice')
 	->name('maquina_indices');
 
-	//Maquinas................................................................................
+	//CLPs................................................................................
 
 	Route::get('/clp/cadastro', 'CLPController@telaCadastro')
 	->name('clp_cadastro');
 
-	Route::get('/Cclp/alterar/{id}', 'CLPController@telaAlteracao')
+	Route::get('/clp/alterar/{id}', 'CLPController@telaAlteracao')
 	->name('clp_update');
 
-	Route::post('/clp/adicionar', 'cLPController@adicionar')
+	Route::post('/clp/adicionar', 'CLPController@adicionar')
 	->name('clp_add');
 
 	Route::post('/clp/alterar/{id}', 'CLPController@alterar')
@@ -77,6 +77,29 @@ Route::middleware(['auth'])->group(function(){
 
 	Route::get('/clp/indices/{id}', 'CLPController@indice')
 	->name('clp_indices');
+
+	//Entradas................................................................................
+
+	Route::get('/entradas/cadastro', 'EntradasController@telaCadastro')
+	->name('entradas_cadastro');
+
+	Route::get('/entradas/alterar/{id}', 'EntradasController@telaAlteracao')
+	->name('entradas_update');
+
+	Route::post('/entradas/adicionar', 'EntradasController@adicionar')
+	->name('entradas_add');
+
+	Route::post('/entradas/alterar/{id}', 'EntradasController@alterar')
+	->name('entradas_alterar');
+
+	Route::get('/entradas/excluir/{id}', 'EntradasController@excluir')
+	->name('entradas_delete');
+
+	Route::get('/entradas/listar', 'EntradasController@listar')
+	->name('entradas_listar');
+
+	Route::get('/entradas/indices/{id}', 'EntradasController@indice')
+	->name('entradas_indices');
 
 	//Eventos................................................................................
 

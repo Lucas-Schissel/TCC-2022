@@ -17,12 +17,10 @@ class AlarmesController extends Controller
 		return view('auth.login');
 	}
 
-    function adicionar(Request $req){
-		if (Auth::check()){
+    function adicionar($req){
 						
 			$alm = new Alarmes();
-			$alm->id_maquina = 1;
-			$alm->id_evento = 3;
+			$alm->id_entradas = $req;
 			
 
 			if ($alm->save()){
@@ -34,11 +32,8 @@ class AlarmesController extends Controller
 				//	'mensagem' =>'Venda nao efetuada!'
 				//]);
 			}
-			return redirect('/alarmes/listar');
 
-		}else{
-            return view('auth.login');
         }
 
-	}
+	
 }

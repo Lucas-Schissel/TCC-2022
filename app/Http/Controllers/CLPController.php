@@ -58,6 +58,43 @@ class CLPController extends Controller
         return view('auth.login');
     }
 
+    function alterar(Request $req, $id){
+        if (Auth::check()){
+
+            $req->validate([
+                'nome' => 'required|min:5',
+                'ip' => 'required|min:9',
+                'entradas' => 'required|min:1',
+            ]);
+
+            $clp = CLP::find($id);
+
+            $nome = $req->input('nome');
+            $ip = $req->input('ip');
+            $entradas = $req->input('entradas');
+                    
+           
+            $clp->nome = $nome;
+            $clp->ip = $ip;
+            $clp->entradas = $entradas;  
+            
+        
+            if ($clp->save()){
+                session([
+                    'mensagem' =>"CLP: $nome, foi alterada com sucesso!"
+                ]);
+            } else {
+                session([
+                    'mensagem' =>"CLP: $nome, nao alterada !!!"
+                ]);
+            }
+
+            return CLPController::listar();
+        }
+        return view('auth.login'); 
+        
+    }
+
     function listar(){
         if (Auth::check()){
             $clp = CLP::all();

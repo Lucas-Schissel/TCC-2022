@@ -14,4 +14,8 @@ class CLP extends Model
     protected $table = 'clp';
     protected $primaryKey ='id';
     protected $fillable = ['nome'];
+
+    function entradas(){
+    	return $this->hasMany('App\Entradas', 'id_clp', 'id');
+    }
 }

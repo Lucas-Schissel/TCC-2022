@@ -2,14 +2,30 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Alarmes;
+use App\Entradas;
 use App\Evento;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ApiEventoController extends Controller
 {
     /**
      * Display a listing of the resource.
+     * $dados = explode(",",$id);
+        
+       * if($dados[0] == 'true'){
+        *    $io = 1;
+       * }else{
+       *     $io = 2;
+       * }
+
+       * return response()->json([
+   
+       * 'dados' => $dados[0],
+       * 'io' => $io
+       * ]);
      *
      * @return \Illuminate\Http\Response
      */
@@ -24,17 +40,46 @@ class ApiEventoController extends Controller
     public function inputs($id)
     {
         
-        $entradas = explode(",",$id); 
+        $dados = explode(",",$id);
+        $tamanho = count($dados);
+        $nome = "sim";
+
+       
         
-        if($entradas[0] == 'true'){
+        for ($i=0; $i<$tamanho ;$i++){
+
+            if($dados[$i] === 'false'){
+
+                $cadastrados = DB::table('entradas')->where('indice', $i)->first();
+
+                if ($cadastrados != null) {
+                $nome = "nao";
+                
+                $alm = new Alarmes();
+			    $alm->id_entradas = $cadastrados->id;
+			    $alm->save();
+
+                break;
+                }
+            }
+
+            
+
+        }
+
+    
+             
+        if($dados[0] == 'true'){
             $io = 1;
         }else{
             $io = 2;
         }
 
+
         return response()->json([
-   
-        'dados' => $entradas[0],
+        'nome' => $nome,
+        'tamanho' => $tamanho,    
+        'dados' => $dados[0],
         'io' => $io
         ]);
     }
