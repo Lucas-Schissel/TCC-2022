@@ -15,13 +15,11 @@ class TabelaAlarmes extends Migration
     {
         Schema::create('alarmes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_maquina');
-            $table->unsignedBigInteger('id_evento');
+            $table->unsignedBigInteger('id_entradas');
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('id_maquina')->references('id')->on('maquinas');
-            $table->foreign('id_evento')->references('id')->on('eventos');
+            $table->foreign('id_entradas')->references('id')->on('entradas');
         });
     }
 

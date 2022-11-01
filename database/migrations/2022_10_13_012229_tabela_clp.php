@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ExclusaoLogicaUsers extends Migration
+class TabelaClp extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,12 @@ class ExclusaoLogicaUsers extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::create('clp', function (Blueprint $table) {
+            $table->id();
+            $table->string("nome",255);
+            $table->string("ip",255);
+            $table->integer('entradas');
+            $table->timestamps();
             $table->softDeletes();
         });
     }
@@ -25,8 +30,6 @@ class ExclusaoLogicaUsers extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropSoftDeletes();
-        });
+        Schema::dropIfExists('clp');
     }
 }

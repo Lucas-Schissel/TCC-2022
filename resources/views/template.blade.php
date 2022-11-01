@@ -70,6 +70,11 @@
 								Maquinas								
 								</a>
 								<div class= "dropdown-divider"></div>
+								<a class= "dropdown-item" href="{{route('clp_cadastro')}}"> 
+								<i class="icon-cog-alt"></i>
+								CLP								
+								</a>
+								<div class= "dropdown-divider"></div>
 								<a class= "dropdown-item" href="{{route('evento_cadastro')}}"> 
 								<i class="icon-sitemap"></i>
 								Eventos							
@@ -91,6 +96,11 @@
 								<a class= "dropdown-item" href="{{route('cliente_listar')}}"> 
 								<i class="icon-user-circle-o"></i>	
 								Usuarios														
+								</a>
+								<div class= "dropdown-divider"></div>
+								<a class= "dropdown-item" href="{{route('clp_listar')}}"> 
+								<i class="icon-cog-alt"></i>
+								CLPs								
 								</a>
 								<div class= "dropdown-divider"></div>
 								<a class= "dropdown-item" href="{{route('maquina_listar')}}"> 

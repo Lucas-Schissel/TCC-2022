@@ -18,6 +18,7 @@ class TabelaMaquinas extends Migration
             $table->string("nome",255);
             $table->string("descricao",255);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

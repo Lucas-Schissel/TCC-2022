@@ -7,13 +7,15 @@ use Illuminate\Http\Request;
 use App\Maquina;
 use App\Alarmes;
 use App\Evento;
+use App\CLP;
 use Auth;
 
 class MaquinaController extends Controller
 {
     function telaCadastro(){
         if (Auth::check()){
-            return view('telas_cadastro.cadastro_maquinas');
+		
+            return view("telas_cadastro.cadastro_maquinas");
         }
         return view('auth.login');
     }

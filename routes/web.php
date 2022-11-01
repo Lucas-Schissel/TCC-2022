@@ -55,6 +55,29 @@ Route::middleware(['auth'])->group(function(){
 	Route::get('/maquina/indices/{id}', 'MaquinaController@indice')
 	->name('maquina_indices');
 
+	//Maquinas................................................................................
+
+	Route::get('/clp/cadastro', 'CLPController@telaCadastro')
+	->name('clp_cadastro');
+
+	Route::get('/Cclp/alterar/{id}', 'CLPController@telaAlteracao')
+	->name('clp_update');
+
+	Route::post('/clp/adicionar', 'cLPController@adicionar')
+	->name('clp_add');
+
+	Route::post('/clp/alterar/{id}', 'CLPController@alterar')
+	->name('clp_alterar');
+
+	Route::get('/clp/excluir/{id}', 'CLPController@excluir')
+	->name('clp_delete');
+
+	Route::get('/clp/listar', 'CLPController@listar')
+	->name('clp_listar');
+
+	Route::get('/clp/indices/{id}', 'CLPController@indice')
+	->name('clp_indices');
+
 	//Eventos................................................................................
 
 	Route::get('/evento/cadastro', 'EventoController@telaCadastro')
