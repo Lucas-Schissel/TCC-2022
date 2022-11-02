@@ -13,11 +13,8 @@ class Alarmes extends Model
     protected $primaryKey ='id';
     protected $fillable = ['nome'];
 
-    function maquina(){
-        return $this->belongsTo('App\Maquina','id_maquina', 'id','nome');
-    }
-    function evento(){
-        return $this->belongsTo('App\Evento','id_evento', 'id','nome');
+    function entradas(){
+        return $this->belongsTo('App\Entradas','id_entradas', 'id','id_maquina','id_evento');
     }
 
 }

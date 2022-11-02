@@ -12,9 +12,9 @@
             <thead class="thead-dark">
                 <tr>
                     <th id="celula1">ID:</th>
-                    <th id="celula2">Maquina:</th>
-                    <th id="celula3">Evento:</th>
-                    <th id="celula4">Data:</th>
+                    <th >Maquina:</th>
+                    <th >Evento:</th>
+                    <th >Data:</th>
                     <th>Operaçoes:</th>
                 </tr>
             </thead>
@@ -22,10 +22,10 @@
                 @foreach($alarmes as $a)
                 <tr>
                     <td id="celula1">{{$a->id}}</td>
-                    <td id="celula2">{{$a->maquina->nome}}</td>
-                    <td id="celula3">{{$a->evento->nome }}</td>  
+                    <td >{{$a->entradas->maquina->nome}}</td>
+                    <td >{{$a->entradas->evento->nome }}</td>  
                     @if($a->updated_at)
-                    <td id="celula4">{{$a->updated_at->format('d/m/Y')}}</td>
+                    <td >{{$a->updated_at}}</td>
                     @else
                     <td id="celula4"></td>
                     @endif
