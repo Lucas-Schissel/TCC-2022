@@ -17,6 +17,8 @@ class TabelaEntradas extends Migration
             $table->id();
             $table->integer('indice');
             $table->string("padrao",10);
+            $table->string("status",10);
+            $table->string("alarme",10);
             $table->unsignedBigInteger('id_clp');
             $table->unsignedBigInteger('id_evento');
             $table->unsignedBigInteger('id_maquina');

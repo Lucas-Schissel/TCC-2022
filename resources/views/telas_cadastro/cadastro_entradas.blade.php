@@ -51,7 +51,13 @@
 				<option value="true" selected>True</option>
 				<option value="false">False</option>
 				</select>
-
+				<br>
+				
+				<select name="status" class="form-control border border-success rounded">
+				<option value="" disabled selected>Status:</option>
+				<option value="ativo" selected>Ativo</option>
+				<option value="inativo">Inativo</option>
+				</select>
 				<br>	
 				
 				<button class="btn btn-success btn-block"  type="submit">

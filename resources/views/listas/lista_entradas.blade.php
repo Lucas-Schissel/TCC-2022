@@ -18,6 +18,7 @@
 				<th >CLP</th>
 				<th >IN</th>
 				<th >Padrão</th>
+				<th >Status</th>
 				<th >Funções</th>
 			</tr>
 		</thead>
@@ -31,6 +32,7 @@
 			<td>{{ 	$e->clp->nome}}</td>
 			<td>{{ 	$e->indice}}</td>
 			<td>{{ 	$e->padrao}}</td>
+			<td>{{ 	$e->status}}</td>
 			<td>
 
 			 <a class="btn btn-warning mt-1" href="{{ route('entradas_update', [ 'id' => $e->id ])}}"> 

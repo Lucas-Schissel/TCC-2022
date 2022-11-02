@@ -48,44 +48,38 @@ class ApiEventoController extends Controller
         
         for ($i=0; $i<$tamanho ;$i++){
 
-            if($dados[$i] === 'false'){
-
-                $cadastrados = DB::table('entradas')->where('indice', $i)->first();
-
-                if ($cadastrados != null) {
-                $nome = "nao";
-                
-                $alm = new Alarmes();
-			    $alm->id_entradas = $cadastrados->id;
-			    $alm->save();
-
-                break;
+            $status = "ativo";
+            $alarme = "false";
+            $cadastrados = DB::table('entradas')->where('indice', $i)->where('status', $status)->where('alarme', $alarme)->first();
+                if($cadastrados != null){
+                    if($dados[$i] != $cadastrados->padrao){
+                        
+                        $entradas = Entradas::find($cadastrados->id);
+                        $entradas->alarme = "true"; 
+                        $entradas->save();
+                        $nome = "nao";        
+                        $alm = new Alarmes();
+			            $alm->id_entradas = $cadastrados->id;
+			            $alm->save();
+                    }
                 }
-            }
-
-            
-
+        
         }
 
-    
-             
-        if($dados[0] == 'true'){
-            $io = 1;
-        }else{
-            $io = 2;
-        }
 
 
         return response()->json([
         'nome' => $nome,
         'tamanho' => $tamanho,    
         'dados' => $dados[0],
-        'io' => $io
         ]);
     }
 
     public function entradas()
     {
+        
+
+
         $eventos = Evento::all();
         return response()->json([
         'eventos' => $eventos

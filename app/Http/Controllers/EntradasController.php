@@ -43,6 +43,7 @@ class EntradasController extends Controller
                 'id_clp' => 'required',
                 'indice' => 'required',
                 'padrao' => 'required',
+                'status' => 'required',
             ]);
 
             $maquina = $req->input('id_maquina');
@@ -50,13 +51,17 @@ class EntradasController extends Controller
             $clp = $req->input('id_clp');
             $indice = $req->input('indice');
             $padrao = $req->input('padrao');
+            $status = $req->input('status');
+            $alarme = "false";
                     
             $entradas = new Entradas();
             $entradas->id_maquina = $maquina;
             $entradas->id_evento = $evento;
             $entradas->id_clp = $clp;
             $entradas->indice = $indice;
-            $entradas->padrao = $padrao;    
+            $entradas->padrao = $padrao;
+            $entradas->status = $status; 
+            $entradas->alarme = $alarme;     
 
             if ($entradas->save()){
                 session([
@@ -81,6 +86,7 @@ class EntradasController extends Controller
                 'id_clp' => 'required',
                 'indice' => 'required',
                 'padrao' => 'required',
+                'status' => 'required',
             ]);
 
             $entrada = Entradas::find($id);
@@ -90,6 +96,8 @@ class EntradasController extends Controller
             $clp = $req->input('id_clp');
             $indice = $req->input('indice');
             $padrao = $req->input('padrao');
+            $status = $req->input('status');
+            $alarme = "false";
                     
            
             $entrada->id_maquina = $maquina;
@@ -97,6 +105,8 @@ class EntradasController extends Controller
             $entrada->id_clp = $clp;
             $entrada->indice = $indice;
             $entrada->padrao = $padrao; 
+            $entrada->status = $status;
+            $entradas->alarme = $alarme;  
             
         
             if ($entrada->save()){

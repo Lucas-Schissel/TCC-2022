@@ -17,23 +17,5 @@ class AlarmesController extends Controller
 		return view('auth.login');
 	}
 
-    function adicionar($req){
-						
-			$alm = new Alarmes();
-			$alm->id_entradas = $req;
-			
-
-			if ($alm->save()){
-				//session([
-					//'mensagem' =>'Venda efetuada com Sucesso!'
-				//]);
-			} else {
-				//session([
-				//	'mensagem' =>'Venda nao efetuada!'
-				//]);
-			}
-
-        }
-
 	
 }

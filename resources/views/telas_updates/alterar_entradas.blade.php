@@ -40,6 +40,14 @@
 				<option value="false" <?=('false' == $entradas->padrao)?'selected':''?> >False</option>
 		</select>
 
+				<br>
+				
+		<select name="status" class="form-control border border-success rounded">
+				<option value="" disabled selected>Valor Padrão:</option>
+				<option value="ativo" <?=('ativo' == $entradas->status)?'selected':''?> >Ativo</option>
+				<option value="inativo" <?=('inativo' == $entradas->status)?'selected':''?> >Inativo</option>
+		</select>
+
 				<br>	
 
 	<input type="submit"  class="btn btn-success btn-lg btn-block" value="Salvar alteraçoes">
