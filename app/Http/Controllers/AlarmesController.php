@@ -24,5 +24,27 @@ class AlarmesController extends Controller
 		return view('auth.login');
 	}
 
+	function excluir($id){
+        if (Auth::check()){     
+                
+                    $alarme = Alarmes::find($id);
+                    
+                    if ($alarme->delete()){
+                        session([
+                            'mensagem' =>"Alarme: $alarme->id ,foi reconhecido!"
+                        ]);
+                        return AlarmesController::listar();
+                    } else {
+                        session([
+                            'mensagem' =>"Alarme: $alarme->id , não pode ser reconhecido!"
+                        ]);
+                        return AlarmesController::listar();
+                        }
+        }else{
+            return view('auth.login');
+        }
+    
+    }
+
 	
 }

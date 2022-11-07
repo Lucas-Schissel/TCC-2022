@@ -148,6 +148,9 @@ Route::middleware(['auth'])->group(function(){
 	Route::get('/alarmes/adicionar', 'AlarmesController@adicionar')
 	->name('alarmes_adicionar');
 
+	Route::get('/alarme/excluir/{id}', 'AlarmesController@excluir')
+	->name('alarmes_delete');
+
 	
 });
 

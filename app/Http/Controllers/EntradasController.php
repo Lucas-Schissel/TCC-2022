@@ -106,7 +106,7 @@ class EntradasController extends Controller
             $entrada->indice = $indice;
             $entrada->padrao = $padrao; 
             $entrada->status = $status;
-            $entradas->alarme = $alarme;  
+            $entrada->alarme = $alarme;  
             
         
             if ($entrada->save()){

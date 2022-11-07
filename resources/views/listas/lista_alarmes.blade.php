@@ -14,7 +14,7 @@
                     <th id="celula1">ID:</th>
                     <th >Maquina:</th>
                     <th >Evento:</th>
-                    <th >Data:</th>
+                    <th >Data/Hora:</th>
                     <th>Operaçoes:</th>
                 </tr>
             </thead>
@@ -31,7 +31,7 @@
                     @endif
                       
                     <td>
-                        <a class="btn btn-danger m-1" href="" data-toggle="modal" data-target="#excluir"> 
+                        <a class="delete btn btn-danger m-1" data-nome="{{ $a->id}}" data-id="{{ $a->id}}"> 
                           Excluir
                           <i class="icon-trash-empty"></i>
                         </a>
@@ -59,15 +59,26 @@
         </button>
       </div>
       <div class="modal-body">
-        Deseja reconhecer o alarme?
+		Deseja reconhecer o alarme, <span class="nome"></span>?
+        
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" data-target="#finalizar">Nao</button>
-		    <a class="btn btn-info" href="" >Sim</a>
+      <div class="modal-footer justify-content-center">
+		<a href="#" type="button" class="btn btn-outline-secondary delete-yes">Sim</a>
+		<button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Não</button>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+	$('.delete').on('click', function(){
+		var nome = $(this).data('nome');
+		var id = $(this).data('id'); 
+		$('span.nome').text(nome); 
+		$('a.delete-yes').attr('href', '/alarme/excluir/' +id); 
+		$('#excluir').modal('show');
+	});
+</script>
    
 @else
     <div class="alert alert-danger m-2">

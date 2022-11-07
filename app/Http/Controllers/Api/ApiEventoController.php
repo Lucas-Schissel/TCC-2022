@@ -37,41 +37,49 @@ class ApiEventoController extends Controller
         ]);
     }
 
-    public function inputs($id)
+    public function inputs($valores)
     {
         
-        $dados = explode(",",$id);
+        $dados = explode(",",$valores);
         $tamanho = count($dados);
-        $nome = "sim";
-
-       
+        $status = "ativo";
+        $nalarme = "true";   
+        $yalarme = "false";       
         
         for ($i=0; $i<$tamanho ;$i++){
 
-            $status = "ativo";
-            $alarme = "false";
-            $cadastrados = DB::table('entradas')->where('indice', $i)->where('status', $status)->where('alarme', $alarme)->first();
-                if($cadastrados != null){
-                    if($dados[$i] != $cadastrados->padrao){
+            $cadastrados = DB::table('entradas')->where('indice', $i)->where('status', $status)->first();
+                 if($cadastrados != null){
+
+                        if($cadastrados->alarme === $yalarme){
                         
-                        $entradas = Entradas::find($cadastrados->id);
-                        $entradas->alarme = "true"; 
-                        $entradas->save();
-                        $nome = "nao";        
-                        $alm = new Alarmes();
-			            $alm->id_entradas = $cadastrados->id;
-			            $alm->save();
-                    }
-                }
+                                if($dados[$i] != $cadastrados->padrao){
+                                    
+                                    $entradas = Entradas::find($cadastrados->id);
+                                    $entradas->alarme = "true"; 
+                                    $entradas->save();    
+                                    $alm = new Alarmes();
+                                    $alm->id_entradas = $cadastrados->id;
+                                    $alm->save();
+                                }
+
+                        }elseif($cadastrados->alarme === $nalarme){
+
+                                if($dados[$i] === $cadastrados->padrao){       
+
+                                    $entradas = Entradas::find($cadastrados->id);
+                                    $entradas->alarme = "false"; 
+                                    $entradas->save();
+                                }
+                        }
+                            
+                }                        
         
         }
 
-
-
         return response()->json([
-        'nome' => $nome,
         'tamanho' => $tamanho,    
-        'dados' => $dados[0],
+        'dados' => $dados,
         ]);
     }
 

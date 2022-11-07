@@ -74,7 +74,7 @@
         </button>
       </div>
       <div class="modal-body">
-		Deseja realmente excluir a unidade, <span class="nome"></span>?
+		Deseja realmente excluir a entrada, <span class="nome"></span>?
         
       </div>
       <div class="modal-footer justify-content-center">

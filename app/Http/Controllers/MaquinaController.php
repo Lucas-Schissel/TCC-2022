@@ -29,30 +29,38 @@ class MaquinaController extends Controller
     }
 
     function indice(Request $req, $id){
-		if (Auth::check()){			
-			$maq = Maquina::find($id);
-            $eve = Evento::All(); 
-            $alm_total = Alarmes::where('id_maquina',$id)->get()->count();
-            $alm = Alarmes::All();
+		if (Auth::check()){	
 
-            foreach($eve as $eve_nome){
-                $array_nomes_eventos[] =  "'".$eve_nome->nome."'";
-            }
+            $maquina = Maquina::find($id);
 
-            foreach($eve as $e){
-                foreach($alm as $a){
-                $qtd = DB::table('alarmes')
-                        ->where('id_maquina',$id)
-                        ->where('id_evento',$e->id)
-                        ->get()->count();                   
-                }   
-                $array_qtd_eventos[] =  $qtd;       
-            }          
-               
+            $maq_alarme = DB::table('entradas')
+                        ->join('eventos', 'entradas.id_evento', '=', 'eventos.id')
+                        ->where('id_maquina', $id)
+                        ->get();
 
-            $maq_nome = $maq->nome;
+            $alm_total = DB::table('entradas')
+                        ->join('eventos', 'entradas.id_evento', '=', 'eventos.id')
+                        ->where('id_maquina', $id)
+                        ->count();
+
+            //dd($maq_alarme);
+
+            foreach($maq_alarme as $maq){
+                $array_nomes_eventos[] =  "'".$maq->nome."'";
+                $alm_qtd = DB::table('alarmes')
+                        ->join('entradas', 'alarmes.id_entradas', '=', 'entradas.id')
+                        ->where('entradas.id_evento', $maq->id)
+                        ->count();
+                        //dd($alm_qtd);
+                $array_qtd_eventos[] =  $alm_qtd; 
+            }           
+                
+
+            $maq_nome = $maquina->nome;
             $listanomes = implode(',',$array_nomes_eventos);
-            $listaqtd = implode(',', $array_qtd_eventos);
+            $listaqtd = implode(',',$array_qtd_eventos);
+            //$listaqtd = implode(',', $array_qtd_eventos);
+            dd($listaqtd);
 			
 			return view("modal.indice")->with(compact('maq_nome','alm_total','listaqtd','listanomes'));
 		}
