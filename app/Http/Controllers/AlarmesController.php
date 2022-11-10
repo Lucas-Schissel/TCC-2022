@@ -15,6 +15,7 @@ class AlarmesController extends Controller
 {
     function listar(){
 		if (Auth::check()){
+        $feedback = "ativo";
 		$maq = Maquina::all();
         $eve = Evento::all();
         $clp = CLP::all();	

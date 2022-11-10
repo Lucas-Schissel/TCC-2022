@@ -26,11 +26,12 @@ class Entradas extends Model
         return $this->belongsTo('App\Evento','id_evento', 'id','nome');
     }
 
+    /*
     function clps(){
         return $this->belongsToMany('App\CLP', 'id_clp','id','nome')
         ->withPivot(['id','nome'])
         ->withTimestamps();
     }
-
+    */
 
 }

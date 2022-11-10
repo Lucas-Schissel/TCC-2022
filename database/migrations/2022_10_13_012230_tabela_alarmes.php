@@ -16,6 +16,7 @@ class TabelaAlarmes extends Migration
         Schema::create('alarmes', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_entradas');
+            $table->string("feedback",50);
             $table->timestamps();
             $table->softDeletes();
 

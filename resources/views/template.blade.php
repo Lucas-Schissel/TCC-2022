@@ -141,11 +141,6 @@
 								<i class="icon-th-list"></i>
 								Listar Todas
 								</a>
-							<div class= "dropdown-divider"></div>
-								<a class= "dropdown-item" href="{{route('alarmes_adicionar')}}"> 
-								<i class="icon-sitemap"></i>
-								Novo							
-								</a>
 														
 					 </div>
 

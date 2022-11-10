@@ -60,7 +60,7 @@ class MaquinaController extends Controller
             $listanomes = implode(',',$array_nomes_eventos);
             $listaqtd = implode(',',$array_qtd_eventos);
             //$listaqtd = implode(',', $array_qtd_eventos);
-            dd($listaqtd);
+            //dd($listaqtd);
 			
 			return view("modal.indice")->with(compact('maq_nome','alm_total','listaqtd','listanomes'));
 		}

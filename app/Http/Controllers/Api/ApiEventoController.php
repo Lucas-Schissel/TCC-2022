@@ -60,6 +60,7 @@ class ApiEventoController extends Controller
                                     $entradas->save();    
                                     $alm = new Alarmes();
                                     $alm->id_entradas = $cadastrados->id;
+                                    $alm->feedback = $status;
                                     $alm->save();
                                 }
 
@@ -70,6 +71,10 @@ class ApiEventoController extends Controller
                                     $entradas = Entradas::find($cadastrados->id);
                                     $entradas->alarme = "false"; 
                                     $entradas->save();
+
+                                    $alarme = DB::table('alarmes')->where('id_entrada',$entradas->id)->first();
+                                    $alarme->feedback = "inativo";
+                                    $alarme->save();
                                 }
                         }
                             

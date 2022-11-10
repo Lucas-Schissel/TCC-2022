@@ -13,4 +13,8 @@ class Evento extends Model
     protected $primaryKey ='id';
     protected $fillable = ['nome'];
 
+    function entradas(){
+    	return $this->hasMany('App\Entradas', 'id_evento', 'id');
+    }
+
 }

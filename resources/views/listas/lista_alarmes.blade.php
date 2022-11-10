@@ -4,7 +4,7 @@
 
 <div class= "row">
 		<span class="d-block bg-dark text-center text-white w-100">
-      <h2>Todas os Alarmes:</h2>
+      <h2>Todos os Alarmes:</h2>
 		</span>
 </div>
  
@@ -32,7 +32,7 @@
                       
                     <td>
                         <a class="delete btn btn-danger m-1" data-nome="{{ $a->id}}" data-id="{{ $a->id}}"> 
-                          Excluir
+                         
                           <i class="icon-trash-empty"></i>
                         </a>
                     </td>  

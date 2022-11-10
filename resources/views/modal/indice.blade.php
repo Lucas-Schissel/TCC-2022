@@ -21,11 +21,14 @@
         {{$alm_total}}
         </span>		
 			</div>
-      </div class = "col-md-6 col-sm-6 col-6 p-1">
-        <canvas id="myChart"></canvas>
-      <div>
 			
-</div>				
+</div>
+
+<div class = "col-md-6 col-sm-6 col-6 p-1">
+  <div>
+        <canvas id="myChart"></canvas>
+  </div>
+</div>
 
  
 </div>

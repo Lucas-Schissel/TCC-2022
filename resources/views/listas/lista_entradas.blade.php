@@ -7,19 +7,21 @@
 	</span>
 </div>
 
+
+<div class="table-responsive">
 	
 	<table class="table table-bordered table-hover mt-1">
 
 		<thead class="thead-dark">
 			<tr>
 				<th id="celula1">ID</th>
-				<th >Maquina</th>
-				<th >Evento</th>
-				<th >CLP</th>
-				<th >IN</th>
-				<th >Padrão</th>
-				<th >Status</th>
-				<th >Funções</th>
+				<th id="celula2">Maquina</th>
+				<th id="celula2">Evento</th>
+				<th id="celula2">CLP</th>
+				<th id="celula1">IN</th>
+				<th id="celula1">Padrão</th>
+				<th id="celula1">Status</th>
+				<th id="celula1">Funções</th>
 			</tr>
 		</thead>
 					
@@ -27,12 +29,12 @@
 		@foreach ($entradas as $e)
 		  <tr class="table-light" >
 			<td id="celula1">{{  $e->id }}</td>
-			<td>{{  $e->maquina->nome}}</td>
-			<td>{{ 	$e->evento->nome}}</td>
-			<td>{{ 	$e->clp->nome}}</td>
-			<td>{{ 	$e->indice}}</td>
-			<td>{{ 	$e->padrao}}</td>
-			<td>{{ 	$e->status}}</td>
+			<td id="celula2">{{  $e->maquina->nome}}</td>
+			<td id="celula2">{{ 	$e->evento->nome}}</td>
+			<td id="celula2">{{ 	$e->clp->nome}}</td>
+			<td id="celula1">{{ 	$e->indice}}</td>
+			<td id="celula1">{{ 	$e->padrao}}</td>
+			<td id="celula1"> {{ 	$e->status}}</td>
 			<td>
 
 			 <a class="btn btn-warning mt-1" href="{{ route('entradas_update', [ 'id' => $e->id ])}}"> 
@@ -50,6 +52,8 @@
 		@endforeach
 		</tbody>
 	</table>
+
+</div>
 
 
 
