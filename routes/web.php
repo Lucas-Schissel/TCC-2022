@@ -14,6 +14,10 @@ Route::middleware(['auth'])->group(function(){
 
 	//Usuarios................................................................................
 
+	//Usuarios..................................................................................
+	Route::get('/usuario/listar', 'ClienteController@listar')
+	->name('usuario_listar');
+
 	Route::get('/cliente/cadastro', 'ClienteController@telaCadastro')
 	->name('cliente_cadastro');
 
@@ -135,10 +139,6 @@ Route::middleware(['auth'])->group(function(){
 
 	Route::get('/logout', 'AppController@logout')
 	->name('logout');
-
-	//Usuarios..................................................................................
-	Route::get('/usuario/listar', 'ClienteController@listar')
-	->name('usuario_listar');
 	
 	//Alarmes................................................................................
 
@@ -154,7 +154,7 @@ Route::middleware(['auth'])->group(function(){
 	
 });
 
-Route::get('/api/inputs/{id}', 'api\ApiEventoController@inputs');
+//Route::get('/api/inputs/{id}', 'api\ApiEventoController@inputs');
 Route::get('/api/entradas', 'api\ApiEventoController@entradas');
 Route::post('/api/dados', 'api\ApiEventoController@dados');
 

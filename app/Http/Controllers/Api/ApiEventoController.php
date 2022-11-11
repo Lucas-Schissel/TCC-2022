@@ -13,19 +13,6 @@ class ApiEventoController extends Controller
 {
     /**
      * Display a listing of the resource.
-     * $dados = explode(",",$id);
-        
-       * if($dados[0] == 'true'){
-        *    $io = 1;
-       * }else{
-       *     $io = 2;
-       * }
-
-       * return response()->json([
-   
-       * 'dados' => $dados[0],
-       * 'io' => $io
-       * ]);
      *
      * @return \Illuminate\Http\Response
      */
